@@ -1,0 +1,39 @@
+.like {
+    outline: none;
+    box-shadow: none;
+    text-align: center;
+    font-size: 18px;
+    width: 50px;
+    height: 30px;
+    border: 2px solid rgb(202, 206, 206);
+    border-radius: 15px;
+    color: whitesmoke;
+    background-color: rgb(37, 43, 43);
+    cursor: pointer;
+    transition: all 0.5s;
+    margin-bottom: 5px;
+}
+
+.like:hover {
+    background-color: whitesmoke;
+    color: rgb(42, 62, 62);
+}
+
+.liked {
+    outline: none;
+    box-shadow: none;
+    text-align: center;
+    font-size: 18px;
+    width: 50px;
+    height: 30px;
+    border: 2px solid red;
+    border-radius: 15px;
+    color: red;
+    background-color:rgb(37, 43, 43);
+    cursor: pointer;
+}
+
+.liked:hover {
+    background-color: darkred;
+    border-color: darkred;
+}
