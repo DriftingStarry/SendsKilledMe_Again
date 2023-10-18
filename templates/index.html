@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Starry的屎山</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='highlight/styles/github-dark.min.css')}}">
+    <script src="{{url_for('static',filename='highlight/highlight.min.js')}}"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='style/like.css')}}">
+    <script src="{{url_for('static',filename='js/likebutton.js')}}"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <style>
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding-top: 50px;
+            background-color: rgb(35, 39, 47);
+        }
+
+        .wrapper {
+            min-height: 100%;
+            margin-bottom: -50px;
+        }
+
+        .push {
+            height: 50px;
+        }
+
+        .topnav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            z-index: 10;
+        }
+
+
+        .topnav li {
+            float: left;
+            top: 0;
+        }
+
+        #righticon {
+            position: absolute;
+            right: 0%
+        }
+
+        .topnav li a {
+            font-size: 36px;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .topnav a:hover {
+            background-color: darkgrey;
+            color: black
+        }
+
+        .topnav a.active {
+            background-color: darkslategrey;
+        }
+
+        .topnav .search-container {
+            display: flex;
+            position: absolute;
+            left: 34%;
+            right: 34%;
+            margin-top: 18px;
+
+        }
+
+        .topnav .search-container input {
+            border: 2px solid grey;
+            border-radius: 15px 0px 0px 15px;
+            width: 600px;
+            padding: 9px;
+            font-size: 16px;
+        }
+
+        .topnav .search-container button {
+            border: 2px solid grey;
+            border-radius: 0px 15px 15px 0px;
+            padding: 8px;
+            align-self: center;
+            background-color: darkgrey;
+            cursor: pointer;
+
+        }
+
+        .topnav .search-container button:hover {
+            background-color: grey;
+            color: blanchedalmond;
+        }
+
+        .passage {
+            margin: 4px;
+            font-size: 16px;
+            color: white;
+        }
+
+        .section_A {
+            background-color: rgb(35, 39, 47);
+            background-size: 100%;
+        }
+
+        .section_B {
+            background-color: rgb(26, 28, 35);
+            background-size: 100%;
+        }
+
+        .footer {
+            height: 150px;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            position: relative;
+
+        }
+
+        .footergrid {
+            display: flex;
+            bottom: 0;
+            overflow: hidden;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .flex-col-noalign {
+            display: flex;
+            flex-direction: column;
+            padding: 0px;
+        }
+
+        .flex-col a {
+            color: white;
+            padding: 4px;
+            text-decoration: none;
+        }
+
+        .flex-col p {
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+        }
+
+        .flex-col a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        #welcome {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .h1 {
+            margin: 8px;
+            font-size: 48px;
+            text-align: center;
+        }
+
+        .h2 {
+            margin: 8px;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .h3 {
+            margin: 8px;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .url_button {
+            margin-top: 0;
+            display: flex;
+        }
+
+        .url_button a {
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            color: white;
+            border: 2px solid white;
+            background-color: rgb(40, 40, 49);
+            border-radius: 15px;
+            margin: 20px;
+            padding: 16px;
+            transition-property: background, color;
+            transition-duration: 0.5s, 0.5s;
+        }
+
+        .url_button a:hover {
+            background-color: white;
+            color: rgb(40, 40, 49)
+        }
+
+        .code code {
+            border: 2px solid silver;
+            border-radius: 15px;
+            display: flex;
+            overflow: scroll;
+            position: static;
+            left: 15%;
+            max-height: 350px;
+            max-width: 500px;
+
+
+        }
+
+        .code {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        .blocks {
+            position: relative;
+            width: 100%;
+            display: flex;
+
+        }
+
+        #block1 {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            left: 25%;
+        }
+
+        #block2 {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 25%;
+        }
+
+        .imgs {
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .imgblock img {
+            float: left;
+            margin: 10px;
+            width: 320px;
+            height: 200px;
+            transition: all 0.1s;
+        }
+
+        .imgblock img:hover {
+            width: 480px;
+            height: 300px;
+        }
+
+        .imgblock {
+            text-align: center;
+        }
+        #fuck{
+            text-decoration: 8px line-through red;
+            transition: all 10s;
+            font-size: 10px;
+        }
+        #fuck:hover{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<div class="topnav">
+    <ul>
+        <li><a class="active" ,href=""><i class="fa fa-home"></i></a></li>
+        <li><a href="https://github.com/DriftingStarry/SendsKilledMe_Again" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a href="https://github.com/DriftingStarry/SomeCode/tree/DFSR" target="_blank"><i
+                    class="fa fa-trash"></i></a></li>
+    </ul>
+    <div class="search-container">
+        <input type="text" placeholder='search..' name="search">
+        <button type="submit"><img src="{{url_for('static',filename='img/search.svg')}}" style="height: 18px;width: 18px;"></button>
+    </div>
+    <div id="righticon">
+        <li style="list-style-type: none;"><a href="https://github.com/DriftingStarry"><img src="{{url_for('static',filename='img/dfsr.webp')}}"
+                    height="28px" width="28px"></a></li>
+    </div>
+</div>
+
+<body>
+    <div class="wrapper">
+        <section class="section_A" id="welcome">
+            <!-- 简短自我介绍 -->
+            <div style="margin-top: 50px;">
+                <img src="{{url_for('static',filename='img/dfsr.webp')}}">
+            </div>
+            <div class="passage">
+                <h1 class="h1">DriftingStarry</h1>
+                <h2 class="h2">成分复杂的方块人</h2>
+            </div>
+            <div class="url_button">
+                <a href="">男左</a>
+                <a href="">变态中间</a>
+                <a href="">女右</a>
+            </div>
+
+        </section>
+        <section class="section_B" id="code">
+            <div style="margin-top: 18px;">
+                <h1 class="h1 passage">还有头fa↘的编程小白</h1>
+                <h2 class="h2 passage">啥都会一点但是啥都不会</h2>
+            </div>
+            <div class="blocks flex-col-noalign" style="height: 500px;">
+                <div id="block1">
+                    <h3 class="h3 passage" style="text-align: center">
+                        最引以为傲的代码居然是用BFS做SENDS考核的寻路问题<br>(甚至没有保存路径)</h3>
+                    <pre class="code">
+                        <code class="python">
+N = int(input())
+islands = [[] for j in range(N+1)]
+k,w = input().split(' ')
+k = int(k)
+w = int(w)
+for i in range(k):
+    a,b = input().split(' ')
+    a = int(a)
+    b = int(b)
+    islands[a].append(b)
+    islands[b].append(a)
+print(islands)
+    
+def judge(start,end):
+    flag = False
+    q = ['']*1000
+    visited=[]
+    head = tail = 0
+    q[tail] = start
+    tail += 1
+    visited.append(start)
+    while head < tail and not flag:
+        for i in islands[q[head]]:
+            print(i)
+            if i not in visited:
+                q[tail] = i
+                tail += 1
+                visited.append(i)
+            if i == end:
+                flag = True
+        head += 1
+        print(head,tail)
+    return flag
+for i in range(w):
+    ss = input().split(' ')
+    start = int(ss[0])
+    end = int(ss[1])
+    if judge(start,end):
+        print("NO")
+    else:
+        print("YES")
+                        </code>
+                    </pre>
+                    <h3 class="h3 passage" style="text-align: center;margin-top: -7%;"><del
+                            style="text-decoration: 2px line-through rgb(248,248,255) ;"> 但是这题我过了！ (小声bb)</del></h3>
+                </div>
+                <div id="block2">
+                    <h3 class="h3 passage" style="text-align: center;">要贴什么屎山代码好呢</h3>
+                    <img src="{{url_for('static',filename='img/thinking.gif')}}" style="margin-top: 12%;">
+                    <h3 class="h3 passage" style="text-decoration: 2px line-through;">要不贴个MineCraft Java Edition源码吧</h3>
+                </div>
+            </div>
+            <!-- 代码样例 -->
+
+        </section>
+        <section class="section_A" id="hobbies" style="height: 600px;">
+            <!-- 爱好画廊-提供爱心选取(like功能) -->
+            <div style="margin-top: 18px;">
+                <h1 class="h1 passage">亿点爱好-冰山一jio</h1>
+            </div>
+            <div class="imgs">
+                <div class="imgblock">
+                    <a href="https://www.blender.org/" target="_blank">
+                        <img src="{{url_for('static',filename='img/blender.png')}}">
+                    </a>
+                    <div class="passage">
+                        <p>晚上寂寞难耐?<br>
+                            打开Blenderrrrr<br>激情动画♥<br>秃头建模♥<br>战至天明♥</p>
+                    </div>
+                    <button class="like" onclick="like(0)">♥</button>
+                </div>
+                <div class="imgblock">
+                    <a href="img/2.5k.png" target="_blank">
+                        <img src="{{url_for('static',filename='img/2.5k.png')}}">
+                    </a>
+                    <div>
+                        <p class="passage">用Blender做的壁纸</p>
+                        <p class="passage"><del>得意之作</del></p>
+                    </div>
+                    <button class="like" onclick="like(1)">♥</button>
+                </div>
+                <div class="imgblock">
+                    <a href="img/mc.png" target="_blank">
+                        <img src="{{url_for('static',filename='img/mc.png')}}">
+                    </a>
+                    <div>
+                        <p class="passage">闲暇时光<br>MC亿下<br>一玩就是亿天<br>一下线就是亿年<br><del>已经许久未进爷的小存档了呢(悲)</del></p>
+                    </div>
+                    <button class="like" onclick="like(2)">♥</button>
+                </div>
+                <div class="imgblock">
+                    <a href="img/pr.png" target="_blank">
+                        <img src="{{url_for('static',filename='img/pr.png')}}">
+                    </a>
+                    <div>
+                        <p class="passage">白天昏昏欲睡?<br>打开Premiere<br>阴间视频♥<br>无限崩溃♥<br>天昏地暗♥</p>
+                    </div>
+                    <button class="like" onclick="like(3)">♥</button>
+                </div>
+                <div class="imgblock">
+                    <a href="https://www.bilibili.com/video/BV1yV4y1s79r" target="_blank">
+                        <img src="{{url_for('static',filename='img/video.png')}}">
+                    </a>
+                    <div>
+                        <p class="passage">求个三连<br><del>真不要脸</del></p>
+                        <p class="passage">鄙夷之作</p>
+                        <p class="passage" style="font-size: 12px;text-decoration: line-through;">这逼玩意害我被盒打击了(小声bb)</p>
+                        <p class="passage" style="font-size: 6px;text-decoration: line-through;">在这里痛斥陈潇(Monika)学长(bushi)</p>
+                    </div>
+                    <button class="like" onclick="like(4)">♥</button>
+                </div>
+        </section>
+        <section class="section_B" id="conclusion" style="height: 600px;">
+            <h1 class="h1 passage">一点感想吧(中二病持续发作的产物)</h1>
+            <h3 class="h3 passage" style="font-size: 12px;text-decoration: 1px line-through;text-align: center;">水网页</h3>
+            <h2 class="passage" style="text-align: center;">很早的时候就有做网站的想法了
+                <br>但是迫于很多原因没有去做
+                <br><del>说白了就是懒啦</del>
+                <br>对于网页的了解也一直停留在不知道什么时候学的一点html
+                <br>完全不明白那些优雅的网页是怎么出来的
+                <br>直到这一次考核要求我做这样一个网站
+                <br>我才摸滚带爬地去学我以前只敢想想的东西
+                <br>做的过程也是十分艰辛
+                <br>没有完全的规划，没有模块化的概念·····
+                <br>因为准备的不完全，加上还有运维那边的考核，我做的很仓促，也很坎坷
+                <br>比如刚开始写的时候一直用的内部样式表,搞得现在css代码占了几百行,非常不便于后续维护
+                <br>甚至因为一个小的排版问题浪费几小时
+                <br>不过当这个粗坯出来的时候
+                <br>还是非常有成就感的，也算是实现了一直以来的一个梦想吧
+                <br>觉得这几天的通宵,值了!
+                <br>以及
+                <br><del>期待答辩那天尴尬到不行的我</del>
+            </h2>
+            <h1 class="h1 passage" id="fuck">我再也不想写网页了呜呜呜<br>诶卧槽出bug了</h1>
+            
+        </section>
+    </div>
+    <div class="push"></div>
+    <footer class="footer">
+        <div class="footergrid">
+            <div class="flex-col">
+                <p>友情链接</p>
+            </div>
+            <div class="flex-col">
+                <p>恶臭的一列</p>
+                <a href="https://www.bilibili.com/read/cv5533507/">哼哼哼啊啊啊啊啊啊啊</a>
+                <a
+                    href="https://i0.hdslb.com/bfs/article/209df8fea81f951e7343c8121478ad912e95c469.jpg@!web-article-pic.avif">1145141919810</a>
+            </div>
+            <div class="flex-col">
+                <p>叫苦连天的一列</p>
+                <a href="https://github.com/DriftingStarry" target="_blank">好累好累的娃</a>
+                <a href="https://space.bilibili.com/372408781" target="_blank">好累好累的孩子</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
