@@ -10,7 +10,7 @@ A WebSite About Myself
 5. 画廊动态轮播(没有写滚动展示)
 6. 莫名奇妙的文字动画
 7. 底栏恶臭链接
-8. 用 ~~gay~~ github进行了部署，点击[这里](https://driftingstarry.github.io/SendsKilledMe_Again/)来一探究竟!
+8. 用 ~~gay~~ github pages进行了部署，点击[这里](https://driftingstarry.github.io/SendsKilledMe_Again/)来一探究竟!
 9. 请务必也康康Flask_Adjusted分支！
 ***
 # 待实现TBC...&缺陷
